@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Photon.PunBehaviour
 {
+    public static GameManager Instance;
+
     #region Photon Messages
 
     /// <summary>
@@ -61,6 +63,11 @@ public class GameManager : Photon.PunBehaviour
     }
 
     #endregion
+
+    private void Start()
+    {
+        Instance = this;
+    }
 
     #region Public Methods
 

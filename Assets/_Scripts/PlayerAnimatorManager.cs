@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerAnimatorManager : MonoBehaviour
+public class PlayerAnimatorManager : Photon.MonoBehaviour
 {
 
     //#region PUBLIC PROPERTIES
@@ -24,7 +24,10 @@ public class PlayerAnimatorManager : MonoBehaviour
 
     void Update()
     {
-
+        if(!photonView.isMine && PhotonNetwork.connected)
+        {
+            return;
+        }
 
         if (!animator)
         {
